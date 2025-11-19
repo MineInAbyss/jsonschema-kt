@@ -1,7 +1,7 @@
 package com.mineinabyss.jsonschema.generator
 
 import com.charleskorn.kaml.YamlComment
-import com.mineinabyss.jsonschema.dsl.JsonSchemaDefinedDescriptor
+import com.mineinabyss.jsonschema.dsl.JsonSchemaDescriptor
 import com.mineinabyss.jsonschema.dsl.SchemaContext
 import com.mineinabyss.jsonschema.dsl.SchemaProperty
 import com.mineinabyss.jsonschema.dsl.SchemaType.*
@@ -28,9 +28,9 @@ data class KotlinxSerializationJsonSchemaGenerator(
         }
         val childElements = descriptor.elementNames.zip(descriptor.elementDescriptors)
 
-        if (descriptor is JsonSchemaDefinedDescriptor) {
+        if (descriptor is JsonSchemaDescriptor) {
             ref = schema.definition(descriptor) {
-                descriptor.define(this)
+                with(descriptor) { defineSchema() }
             }
             return
         }

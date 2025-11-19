@@ -24,10 +24,10 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            compileOnly(idofrontLibs.kotlinx.serialization.json)
-            compileOnly(idofrontLibs.kotlinx.serialization.kaml)
-            compileOnly(project(":dsl"))
-            compileOnly(project(":annotations"))
+            implementation(idofrontLibs.kotlinx.serialization.json)
+            implementation(idofrontLibs.kotlinx.serialization.kaml)
+            implementation(project(":dsl"))
+            implementation(project(":annotations"))
         }
         all {
             languageSettings.enableLanguageFeature("ContextParameters")

@@ -24,7 +24,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            compileOnly(idofrontLibs.kotlinx.serialization.json)
+            implementation(idofrontLibs.kotlinx.serialization.json)
         }
     }
 }
